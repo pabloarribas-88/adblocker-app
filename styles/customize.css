@@ -1,0 +1,422 @@
+/* ==========================================================================
+   White-label customize panel (prototype tool, not part of the app design)
+   ========================================================================== */
+
+body.cp-open {
+  padding-left: 300px;
+  transition: padding-left 0.25s ease;
+}
+
+.customize-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 300px;
+  background: #15171c;
+  color: #f2f3f5;
+  z-index: 100;
+  overflow-y: auto;
+  padding: 24px 20px 32px;
+  box-shadow: 2px 0 24px rgba(0, 0, 0, 0.3);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: transform 0.25s ease;
+}
+
+.customize-panel.collapsed {
+  transform: translateX(-300px);
+}
+
+.customize-handle {
+  position: fixed;
+  top: 20px;
+  left: 300px;
+  z-index: 101;
+  background: #15171c;
+  color: #f2f3f5;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  width: 32px;
+  height: 44px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: left 0.25s ease;
+}
+
+.customize-panel.collapsed + .customize-handle,
+.customize-handle.at-edge {
+  left: 0;
+}
+
+.cp-title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 20px;
+}
+
+.cp-title strong {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.cp-title span {
+  font-size: 12px;
+  color: #8d93a0;
+}
+
+.cp-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #8d93a0;
+  margin: 18px 0 8px;
+}
+
+.cp-presets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.cp-preset {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  background: #1d2026;
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  color: #f2f3f5;
+  text-align: left;
+}
+
+.cp-preset:hover {
+  border-color: #353a44;
+}
+
+.cp-preset.active {
+  border-color: #ffffff;
+}
+
+.cp-preset span:last-child {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.cp-swatch {
+  width: 100%;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cp-swatch span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: block;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.cp-field {
+  margin-bottom: 10px;
+}
+
+.cp-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #c6cad3;
+}
+
+.cp-field select {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #353a44;
+  background: #1d2026;
+  color: #f2f3f5;
+  padding: 0 10px;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.cp-color-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cp-color-field label {
+  margin-bottom: 0;
+}
+
+.cp-color-field input[type="color"] {
+  width: 44px;
+  height: 32px;
+  border: 1px solid #353a44;
+  border-radius: 8px;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.cp-reset {
+  width: 100%;
+  margin-top: 16px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #353a44;
+  background: transparent;
+  color: #f2f3f5;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cp-reset:hover {
+  background: #1d2026;
+}
+
+.cp-footnote {
+  font-size: 11px;
+  color: #6b7080;
+  margin: 14px 0 0;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Preset-specific looks. Only the device mock and its contents are themed;
+   the customize panel stays a fixed dark tool UI regardless of preset.
+   ========================================================================== */
+
+/* ---------- Glassmorphism ---------- */
+
+[data-theme="glass"] body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 55%, #f093fb 100%);
+}
+
+[data-theme="glass"] .device {
+  background: transparent;
+  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+}
+
+[data-theme="glass"] .screen {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+[data-theme="glass"] .card,
+[data-theme="glass"] .hero,
+[data-theme="glass"] .settings-group,
+[data-theme="glass"] .benefit-card,
+[data-theme="glass"] .steps-card,
+[data-theme="glass"] .notif,
+[data-theme="glass"] .settings-preview,
+[data-theme="glass"] .help-banner,
+[data-theme="glass"] .stat,
+[data-theme="glass"] .status-hero,
+[data-theme="glass"] .tab-bar,
+[data-theme="glass"] .field input,
+[data-theme="glass"] .plan {
+  background: rgba(255, 255, 255, 0.45) !important;
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.55) !important;
+}
+
+/* ---------- Neumorphism ---------- */
+
+[data-theme="neu"] body {
+  background: var(--surface-base);
+}
+
+[data-theme="neu"] .device {
+  background: var(--surface-base);
+  box-shadow: 22px 22px 54px rgba(0, 0, 0, 0.14), -22px -22px 54px rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="neu"] .screen {
+  background: var(--surface-base);
+}
+
+[data-theme="neu"] .card,
+[data-theme="neu"] .hero,
+[data-theme="neu"] .settings-group,
+[data-theme="neu"] .benefit-card,
+[data-theme="neu"] .steps-card,
+[data-theme="neu"] .notif,
+[data-theme="neu"] .settings-preview,
+[data-theme="neu"] .help-banner,
+[data-theme="neu"] .stat,
+[data-theme="neu"] .status-hero {
+  background: var(--surface-base) !important;
+  border: none !important;
+  border-radius: 20px;
+  box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.1), -7px -7px 16px rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="neu"] .btn-primary,
+[data-theme="neu"] .btn-outline,
+[data-theme="neu"] .btn-dark {
+  box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.16), -6px -6px 14px rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="neu"] .icon-chip,
+[data-theme="neu"] .mark {
+  box-shadow: inset 3px 3px 7px rgba(0, 0, 0, 0.12), inset -3px -3px 7px rgba(255, 255, 255, 0.7);
+}
+
+/* ---------- Brutalist ---------- */
+
+[data-theme="brutalist"] .device,
+[data-theme="brutalist"] .card,
+[data-theme="brutalist"] .hero,
+[data-theme="brutalist"] .settings-group,
+[data-theme="brutalist"] .benefit-card,
+[data-theme="brutalist"] .steps-card,
+[data-theme="brutalist"] .notif,
+[data-theme="brutalist"] .settings-preview,
+[data-theme="brutalist"] .help-banner,
+[data-theme="brutalist"] .stat,
+[data-theme="brutalist"] .status-hero,
+[data-theme="brutalist"] .tab-bar,
+[data-theme="brutalist"] .field input,
+[data-theme="brutalist"] .plan,
+[data-theme="brutalist"] .btn-primary,
+[data-theme="brutalist"] .btn-outline,
+[data-theme="brutalist"] .btn-dark,
+[data-theme="brutalist"] .mark,
+[data-theme="brutalist"] .icon-chip {
+  border-radius: 2px !important;
+}
+
+[data-theme="brutalist"] .device {
+  box-shadow: 12px 12px 0 #000;
+  border: 3px solid #000;
+}
+
+[data-theme="brutalist"] .card,
+[data-theme="brutalist"] .hero,
+[data-theme="brutalist"] .settings-group,
+[data-theme="brutalist"] .benefit-card,
+[data-theme="brutalist"] .steps-card,
+[data-theme="brutalist"] .notif,
+[data-theme="brutalist"] .settings-preview,
+[data-theme="brutalist"] .help-banner,
+[data-theme="brutalist"] .stat,
+[data-theme="brutalist"] .status-hero,
+[data-theme="brutalist"] .tab-bar,
+[data-theme="brutalist"] .field input,
+[data-theme="brutalist"] .plan {
+  border: 2.5px solid #000 !important;
+  box-shadow: 4px 4px 0 #000 !important;
+}
+
+[data-theme="brutalist"] .btn-primary,
+[data-theme="brutalist"] .btn-outline,
+[data-theme="brutalist"] .btn-dark {
+  border: 2.5px solid #000;
+  box-shadow: 4px 4px 0 #000;
+}
+
+[data-theme="brutalist"] .btn-primary:active,
+[data-theme="brutalist"] .btn-outline:active,
+[data-theme="brutalist"] .btn-dark:active {
+  box-shadow: 1px 1px 0 #000;
+  transform: translate(3px, 3px);
+}
+
+[data-theme="brutalist"] h1,
+[data-theme="brutalist"] h2,
+[data-theme="brutalist"] .title-sm {
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+/* ---------- Apple-style ---------- */
+
+[data-theme="apple"] body {
+  background: #eef0f3;
+}
+
+[data-theme="apple"] .device {
+  border-radius: 54px;
+  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.4), 0 0 0 10px #1c1c1e inset;
+}
+
+[data-theme="apple"] .btn-primary,
+[data-theme="apple"] .btn-dark,
+[data-theme="apple"] .btn-outline {
+  border-radius: 999px;
+}
+
+[data-theme="apple"] .card,
+[data-theme="apple"] .hero,
+[data-theme="apple"] .settings-group,
+[data-theme="apple"] .benefit-card,
+[data-theme="apple"] .steps-card,
+[data-theme="apple"] .notif,
+[data-theme="apple"] .status-hero {
+  border-radius: 20px;
+  border-color: rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 10px 26px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="apple"] .toggle,
+[data-theme="apple"] .toggle.on {
+  border-radius: 16px;
+}
+
+/* ---------- Neon (tech) ---------- */
+
+[data-theme="neon"] body {
+  background: #05070b;
+}
+
+[data-theme="neon"] .device {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--brand-primary) 45%, transparent),
+    0 0 70px color-mix(in srgb, var(--brand-primary) 35%, transparent),
+    0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="neon"] .card,
+[data-theme="neon"] .hero,
+[data-theme="neon"] .settings-group,
+[data-theme="neon"] .benefit-card,
+[data-theme="neon"] .steps-card,
+[data-theme="neon"] .notif,
+[data-theme="neon"] .settings-preview,
+[data-theme="neon"] .help-banner,
+[data-theme="neon"] .stat,
+[data-theme="neon"] .status-hero,
+[data-theme="neon"] .tab-bar,
+[data-theme="neon"] .field input,
+[data-theme="neon"] .plan {
+  border: 1px solid color-mix(in srgb, var(--brand-primary) 40%, transparent) !important;
+  box-shadow: 0 0 18px color-mix(in srgb, var(--brand-primary) 20%, transparent);
+}
+
+[data-theme="neon"] .btn-primary {
+  box-shadow: 0 0 26px color-mix(in srgb, var(--button-bg) 65%, transparent);
+}
+
+[data-theme="neon"] h1,
+[data-theme="neon"] h2,
+[data-theme="neon"] .title-sm {
+  text-shadow: 0 0 18px color-mix(in srgb, var(--brand-primary) 40%, transparent);
+}

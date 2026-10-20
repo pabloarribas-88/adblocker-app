@@ -176,7 +176,7 @@ h1.display-lg {
 }
 
 .btn-primary {
-  background: var(--brand-primary);
+  background: var(--button-bg);
   color: var(--text-on-brand);
 }
 
@@ -186,7 +186,7 @@ h1.display-lg {
 }
 
 .btn-dark {
-  background: var(--ink-primary);
+  background: var(--surface-deep);
   color: var(--text-on-brand);
 }
 
@@ -273,6 +273,21 @@ h1.display-lg {
 
 .icon-chip.sm { width: 32px; height: 32px; border-radius: 9px; }
 .icon-chip.green { background: var(--status-protected-tint); }
+
+/* These icons ship with a fixed brand-red stroke baked into the SVG;
+   recolor them to follow the customizable Primary color. Status icons
+   (.green, success/alert badges) are semantic and stay untouched. */
+.icon-chip:not(.green) img {
+  filter: var(--icon-chip-filter, none);
+}
+
+.tab.active img {
+  filter: var(--tab-active-filter, none);
+}
+
+.mark img {
+  filter: var(--mark-icon-filter, none);
+}
 
 .row {
   display: flex;
@@ -760,7 +775,7 @@ h1.display-lg {
   width: 28px;
   height: 28px;
   border-radius: 14px;
-  background: var(--ink-primary);
+  background: var(--surface-deep);
   color: white;
   font-size: 14px;
   font-weight: 700;

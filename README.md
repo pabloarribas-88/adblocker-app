@@ -32,6 +32,28 @@ any static server.
   export), referenced locally (no temporary Figma URLs in code).
 - `scripts/download-assets.sh` — re-downloads the icon set if Figma asset URLs
   are refreshed.
+- `styles/customize.css`, `scripts/customize.js` — left-side "Customize"
+  panel for white-labeling the prototype (see below).
+
+## White-label customize panel
+
+Every screen has a left-side panel (collapsible) to re-theme the prototype
+live, for demoing to potential partner companies:
+
+- **Typography** — 5 modern/techy Google Fonts (Inter, Space Grotesk, Sora,
+  Plus Jakarta Sans, Manrope).
+- **Colors** — Primary, Buttons, Background color pickers.
+- **Presets** — Default (the original Figma look, always the reset target),
+  Glassmorphism, Neumorphism, Brutalist, Apple-style, Neon (tech), each with
+  its own font/palette and a `[data-theme]` CSS override block.
+- **Reset** button restores Default.
+
+State persists per-browser via `localStorage` (key `adnil-customize`), with
+an inline bootstrap script in each page's `<head>` to avoid a flash of
+default styling before `scripts/customize.js` loads. Icon recoloring is an
+approximation (CSS `filter: hue-rotate/saturate/brightness`, since the source
+SVGs bake in a fixed stroke color rather than using `currentColor`) — good
+enough for a prototype demo, not pixel-perfect across all primary colors.
 
 ## Notes
 

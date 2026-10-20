@@ -8,10 +8,18 @@
   --brand-primary: #d92d20;
   --brand-pressed: #b8261b;
   --brand-tint: #fef3f2;
+  --button-bg: var(--brand-primary);
 
   --surface-base: #ffffff;
   --surface-subtle: #f5f5f7;
+  --surface-deep: #141414;
   --line-default: #e6e6ea;
+
+  /* Set by scripts/customize.js — recolor icons drawn with a fixed
+     brand-red stroke so they follow the chosen Primary color. */
+  --icon-chip-filter: none;
+  --tab-active-filter: none;
+  --mark-icon-filter: none;
 
   --status-protected: #12b76a;
   --status-protected-tint: #ecfdf3;

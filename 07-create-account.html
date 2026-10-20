@@ -3,10 +3,29 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>
+(function(){
+  try {
+    var raw = localStorage.getItem('adnil-customize');
+    if (raw) {
+      var s = JSON.parse(raw);
+      var root = document.documentElement;
+      var FONT_STACKS = {inter:"'Inter', sans-serif", 'space-grotesk':"'Space Grotesk', sans-serif", sora:"'Sora', sans-serif", 'plus-jakarta':"'Plus Jakarta Sans', sans-serif", manrope:"'Manrope', sans-serif"};
+      if (s.font) root.style.setProperty('--font-sans', (FONT_STACKS[s.font]||FONT_STACKS.inter) + ", sans-serif");
+      if (s.primary) root.style.setProperty('--brand-primary', s.primary);
+      if (s.button) root.style.setProperty('--button-bg', s.button);
+      if (s.background) root.style.setProperty('--surface-base', s.background);
+      if (s.theme) root.setAttribute('data-theme', s.theme);
+    }
+  } catch(e) {}
+})();
+</script>
 <title>AdNil — Secure your account</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles/app.css" />
+<link rel="stylesheet" href="styles/customize.css" />
 </head>
 <body>
   <div class="device">
@@ -54,6 +73,7 @@
     </div>
   </div>
 
+  <script src="scripts/customize.js"></script>
   <script src="scripts/nav.js"></script>
 </body>
 </html>
