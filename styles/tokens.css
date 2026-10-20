@@ -1,0 +1,32 @@
+:root {
+  /* Provisional iolo-style tokens (from Figma "00 Provisional tokens" reference frame) */
+  --ink-primary: #141414;
+  --ink-secondary: #4b4b4f;
+  --ink-tertiary: #8a8a8e;
+  --text-on-brand: #ffffff;
+
+  --brand-primary: #d92d20;
+  --brand-pressed: #b8261b;
+  --brand-tint: #fef3f2;
+
+  --surface-base: #ffffff;
+  --surface-subtle: #f5f5f7;
+  --line-default: #e6e6ea;
+
+  --status-protected: #12b76a;
+  --status-protected-tint: #ecfdf3;
+  --status-protected-line: #abefc6;
+
+  --status-attention: #f79009;
+  --status-attention-tint: #fffaeb;
+  --status-attention-line: #fedf89;
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --radius-frame: 44px;
+  --radius-hero: 24px;
+  --radius-card: 16px;
+  --radius-field: 12px;
+  --radius-button: 14px;
+  --radius-chip: 10px;
+}
