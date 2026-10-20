@@ -12,6 +12,8 @@ const SCREENS = [
   { file: "11-dashboard-protected.html", label: "11 Dashboard – protected" },
   { file: "12-dashboard-action-needed.html", label: "12 Dashboard – action needed" },
   { file: "13-settings.html", label: "13 Settings" },
+  { file: "14-protection.html", label: "14 Protection" },
+  { file: "15-help.html", label: "15 Help" },
 ];
 
 function currentFile() {
