@@ -7,6 +7,15 @@ body.cp-open {
   transition: padding-left 0.25s ease;
 }
 
+/* Applied only while the panel's initial (persisted) state is being set on
+   page load, so navigating between screens never re-plays the open/close
+   slide — it only animates on an explicit, in-page toggle click. */
+body.cp-no-anim,
+body.cp-no-anim .customize-panel,
+body.cp-no-anim .customize-handle {
+  transition: none !important;
+}
+
 .customize-panel {
   position: fixed;
   top: 0;
@@ -419,4 +428,59 @@ body.cp-open {
 [data-theme="neon"] h2,
 [data-theme="neon"] .title-sm {
   text-shadow: 0 0 18px color-mix(in srgb, var(--brand-primary) 40%, transparent);
+}
+
+/* ---------- SUPERAntiSpyware (sourced from its own design system: near-black
+   surfaces, a flat neon-green CTA, red accents, Bai Jamjuree type) ---------- */
+
+[data-theme="sas"] body {
+  background: #000000;
+}
+
+[data-theme="sas"] .device {
+  border-radius: var(--radius-frame);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--button-bg) 45%, transparent),
+    0 24px 60px -16px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="sas"] .card,
+[data-theme="sas"] .hero,
+[data-theme="sas"] .settings-group,
+[data-theme="sas"] .benefit-card,
+[data-theme="sas"] .steps-card,
+[data-theme="sas"] .notif,
+[data-theme="sas"] .settings-preview,
+[data-theme="sas"] .help-banner,
+[data-theme="sas"] .stat,
+[data-theme="sas"] .status-hero,
+[data-theme="sas"] .tab-bar,
+[data-theme="sas"] .field input,
+[data-theme="sas"] .plan {
+  background: #171717 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+}
+
+[data-theme="sas"] .btn-primary,
+[data-theme="sas"] .btn-outline,
+[data-theme="sas"] .btn-dark,
+[data-theme="sas"] .mark,
+[data-theme="sas"] .icon-chip,
+[data-theme="sas"] .toggle {
+  border-radius: 4px !important;
+}
+
+[data-theme="sas"] .btn {
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+[data-theme="sas"] h1,
+[data-theme="sas"] h2,
+[data-theme="sas"] .title-sm,
+[data-theme="sas"] .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
 }

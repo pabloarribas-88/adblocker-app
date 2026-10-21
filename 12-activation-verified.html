@@ -10,7 +10,7 @@
     if (raw) {
       var s = JSON.parse(raw);
       var root = document.documentElement;
-      var FONT_STACKS = {inter:"'Inter', sans-serif", 'space-grotesk':"'Space Grotesk', sans-serif", sora:"'Sora', sans-serif", 'plus-jakarta':"'Plus Jakarta Sans', sans-serif", manrope:"'Manrope', sans-serif"};
+      var FONT_STACKS = {inter:"'Inter', sans-serif", 'space-grotesk':"'Space Grotesk', sans-serif", sora:"'Sora', sans-serif", 'plus-jakarta':"'Plus Jakarta Sans', sans-serif", manrope:"'Manrope', sans-serif", 'bai-jamjuree':"'Bai Jamjuree', sans-serif"};
       if (s.font) root.style.setProperty('--font-sans', (FONT_STACKS[s.font]||FONT_STACKS.inter) + ", sans-serif");
       if (s.primary) root.style.setProperty('--brand-primary', s.primary);
       if (s.button) root.style.setProperty('--button-bg', s.button);
@@ -20,16 +20,16 @@
   } catch(e) {}
 })();
 </script>
-<title>AdNil — Congratulations!</title>
+<title>AdNil — AdNil is active</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Bai+Jamjuree:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles/app.css" />
 <link rel="stylesheet" href="styles/customize.css" />
 </head>
 <body>
   <div class="device">
-    <div class="screen" data-node-id="1:228">
+    <div class="screen" data-node-id="1:323">
       <div class="status-bar">
         <span class="time">9:41</span>
         <span class="indicators">5G  100%</span>
@@ -39,20 +39,19 @@
         <div class="success-badge">
           <img src="assets/icons/75924.svg" width="48" height="48" alt="" />
         </div>
-        <h1 class="display-lg">Congratulations!</h1>
-        <p class="body-text">Your subscription has started. Let's secure your account and turn on protection.</p>
-        <div class="card" style="padding:16px;display:flex;gap:12px;align-items:center;text-align:left;">
-          <div class="mark mark-md"><img src="assets/icons/43d46.svg" width="20" height="20" alt="" /></div>
+        <h1 class="display-lg">AdNil is active</h1>
+        <p class="body-text">Safari is now blocking ads and trackers. Open any website to see the difference.</p>
+        <div class="card" style="padding:16px;display:flex;gap:12px;align-items:center;text-align:left;background:var(--status-protected-tint);border-color:var(--status-protected-line);">
+          <div class="icon-chip green"><img src="assets/icons/61cdd.svg" width="20" height="20" alt="" /></div>
           <div class="row-text">
-            <h3>AdNil Premium · Yearly</h3>
-            <p>$7.99/year · renews Oct 16, 2027</p>
+            <h3>Safari extension</h3>
+            <p>Enabled · block lists up to date</p>
           </div>
         </div>
       </div>
 
       <div class="footer">
-        <a class="btn btn-primary" href="07-create-account.html">Continue</a>
-        <p class="legal">Your receipt was sent to the email you used at checkout.</p>
+        <a class="btn btn-primary" href="13-cross-sell-vpn.html">Done</a>
       </div>
     </div>
   </div>

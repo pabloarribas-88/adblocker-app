@@ -8,16 +8,18 @@
     { id: "sora", label: "Sora", stack: "'Sora', sans-serif" },
     { id: "plus-jakarta", label: "Plus Jakarta Sans", stack: "'Plus Jakarta Sans', sans-serif" },
     { id: "manrope", label: "Manrope", stack: "'Manrope', sans-serif" },
+    { id: "bai-jamjuree", label: "Bai Jamjuree", stack: "'Bai Jamjuree', sans-serif" },
   ];
 
   // The current Figma-matched look is always the default / reset target.
   const PRESETS = [
-    { id: "default", label: "Default", font: "inter", primary: "#D92D20", button: "#D92D20", background: "#FFFFFF", theme: "default" },
+    { id: "default", label: "iolo default", font: "inter", primary: "#D92D20", button: "#D92D20", background: "#FFFFFF", theme: "default" },
     { id: "glass", label: "Glassmorphism", font: "sora", primary: "#6C5CE7", button: "#6C5CE7", background: "#EDEBFF", theme: "glass" },
     { id: "neu", label: "Neumorphism", font: "manrope", primary: "#5B6EF5", button: "#5B6EF5", background: "#E7E8F0", theme: "neu" },
     { id: "brutalist", label: "Brutalist", font: "space-grotesk", primary: "#FF3D00", button: "#000000", background: "#FFFFFF", theme: "brutalist" },
     { id: "apple", label: "Apple-style", font: "plus-jakarta", primary: "#0A84FF", button: "#0A84FF", background: "#FFFFFF", theme: "apple" },
     { id: "neon", label: "Neon (tech)", font: "space-grotesk", primary: "#39FF88", button: "#39FF88", background: "#0B0E14", theme: "neon" },
+    { id: "sas", label: "SUPERAntiSpyware", font: "bai-jamjuree", primary: "#FD4849", button: "#19FF84", background: "#030304", theme: "sas" },
   ];
 
   const DEFAULT_STATE = { ...PRESETS[0], presetId: "default" };
@@ -291,6 +293,11 @@
     } catch (e) {
       /* ignore */
     }
+
+    // Suppress the open/close transition for this initial, persisted state
+    // so it doesn't replay as a "slide in" on every page navigation; it's
+    // re-enabled a tick later so a manual toggle click still animates.
+    document.body.classList.add("cp-no-anim");
     if (collapsedInit) {
       panel.classList.add("collapsed");
       handle.textContent = "›";
@@ -298,6 +305,11 @@
     } else {
       document.body.classList.add("cp-open");
     }
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.body.classList.remove("cp-no-anim");
+      });
+    });
   }
 
   if (document.readyState === "loading") {

@@ -883,6 +883,554 @@ h1.display-lg {
   display: flex;
 }
 
+/* ---------- Web checkout (iolo Store) ----------
+   Simulates leaving the app into a browser-hosted storefront, so it keeps
+   its own fixed vendor look (gray page, Roboto type, blue CTA) instead of
+   following the app's white-label tokens. Only the few elements that are
+   explicitly "the AdNil app" (its icon chip, the green return-to-app button,
+   the one-time-offer tag) reuse the app's brand/status tokens on purpose. */
+
+.screen.store {
+  background: #f3f4f4;
+  color: #333;
+  font-family: "Roboto", Arial, sans-serif;
+  position: relative;
+}
+
+.store-page {
+  flex: 1 0 0;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px 12px 84px;
+}
+
+.store-shop-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.store-shop-header span:first-child { font-weight: 400; }
+.store-shop-header span:last-child { font-weight: 500; }
+.store-shop-header { font-size: 26px; }
+
+.store-product {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.store-product-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.store-product-info h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.store-product-info p {
+  font-size: 12px;
+  margin: 0;
+}
+
+.store-product-info .price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+
+.store-product-info .price-row strong {
+  font-size: 15px;
+}
+
+.store-app-icon {
+  background: var(--brand-primary);
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.store-app-icon img {
+  filter: var(--mark-icon-filter, none);
+}
+
+.store-field-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.store-field {
+  flex: 1;
+  min-width: 0;
+  height: 46px;
+  background: white;
+  border: 1px solid #d5d8dc;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  font-size: 14px;
+  color: #6b6e73;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.store-field.focus {
+  border: 1.5px solid #3d7fe3;
+  color: #333;
+  justify-content: space-between;
+}
+
+.store-field .card-brands {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 8px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.store-field .card-brands .visa { color: #1a1f71; letter-spacing: 0.5px; font-size: 12px; }
+.store-field .card-brands .amex { background: #2e77bc; color: white; padding: 1px 3px; border-radius: 2px; }
+
+.store-plan-switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border: 1px solid #d5d8dc;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 13px;
+  width: 100%;
+}
+
+.store-plan-switch a {
+  color: #3d7fe3;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.store-tabs {
+  display: flex;
+  width: 100%;
+}
+
+.store-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 10px;
+  border: 1px solid #d5d8dc;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.store-tab.selected { background: #f3f4f4; }
+.store-tab.inactive { background: #e4e5e7; color: #1a1f71; }
+
+.store-card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  border: 1px solid #d5d8dc;
+  border-top: none;
+  padding: 16px 12px 18px;
+}
+
+.store-note {
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.store-order-total {
+  background: white;
+  border: 1px solid #d5d8dc;
+  border-radius: 6px;
+  padding: 10px 14px;
+  width: 100%;
+  font-size: 13px;
+}
+
+.store-order-total .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  gap: 8px;
+}
+
+.store-order-total .row.total {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.store-consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 0 6px;
+  width: 100%;
+}
+
+.store-consent .box {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  border: 1.5px solid #6b6e73;
+  flex-shrink: 0;
+}
+
+.store-consent p {
+  font-size: 13px;
+  line-height: 19px;
+  margin: 0;
+}
+
+.store-cta {
+  background: #5592e8;
+  color: white;
+  width: 100%;
+  height: 56px;
+  border-radius: 30px;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.store-footnote {
+  font-size: 11px;
+  color: #6b6e73;
+  text-align: center;
+  margin: 0;
+}
+
+.store-chat {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #2a5bd7;
+  color: white;
+  border-radius: 12px 12px 0 0;
+  padding: 12px 18px;
+  font-weight: 900;
+  font-size: 14px;
+  margin-top: -18px;
+}
+
+.store-safari-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px 30px;
+  background: white;
+  flex-shrink: 0;
+}
+
+.store-safari-toolbar .chip {
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  background: var(--surface-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.store-safari-toolbar .url {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  border-radius: 22px;
+  background: #3a3d42;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ---------- Post-purchase offer sheet (web checkout upsell) ---------- */
+
+.store-order-confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  width: 100%;
+}
+
+.store-order-confirm h2 {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
+.store-order-confirm .next-step {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.store-order-confirm .next-step h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  color: #333;
+}
+
+.store-order-confirm .next-step p {
+  font-size: 13px;
+  margin: 0;
+  color: #6b6e73;
+}
+
+.store-order-confirm .order-meta {
+  width: 100%;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.store-order-confirm .order-meta p { margin: 2px 0; }
+
+.store-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 10;
+}
+
+.store-sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  border-radius: 24px 24px 0 0;
+  padding: 10px 22px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 11;
+  color: #333;
+}
+
+.store-sheet-handle {
+  width: 40px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--line-default);
+  align-self: center;
+}
+
+.store-offer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.store-offer-tag {
+  background: var(--brand-tint);
+  color: #c1272d;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.store-offer-product {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.store-offer-product .store-offer-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.store-offer-product-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.store-offer-product-info h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.store-offer-product-info .sub {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b6e73;
+}
+
+.store-offer-body {
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+  width: 100%;
+}
+
+.store-offer-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.store-offer-feature {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.store-offer-feature .chip {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--status-protected-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.store-offer-feature p {
+  font-size: 14px;
+  line-height: 19px;
+  margin: 0;
+  flex: 1;
+}
+
+.store-offer-price {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  padding: 4px 0 10px;
+  border-bottom: 1px solid #d5d8dc;
+}
+
+.store-offer-price .row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.store-offer-price .amount {
+  font-size: 24px;
+  font-weight: 700;
+  color: #c1272d;
+}
+
+.store-offer-price .discount {
+  background: #c1272d;
+  color: white;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.store-offer-price .note {
+  font-size: 11px;
+  color: #6b6e73;
+}
+
+.store-offer-price p.fine {
+  font-size: 12px;
+  color: #6b6e73;
+  margin: 0;
+}
+
+.store-offer-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.store-offer-actions a {
+  flex: 1;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.store-offer-actions .decline {
+  background: white;
+  border: 1.5px solid #333;
+  color: #333;
+}
+
+.store-offer-actions .accept {
+  background: #c1272d;
+  color: white;
+}
+
+.store-offer-disclaimer {
+  font-size: 11px;
+  color: #6b6e73;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
 /* ---------- Jump menu (prototype aid, not part of the design) ---------- */
 
 .proto-jump {

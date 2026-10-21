@@ -10,7 +10,7 @@
     if (raw) {
       var s = JSON.parse(raw);
       var root = document.documentElement;
-      var FONT_STACKS = {inter:"'Inter', sans-serif", 'space-grotesk':"'Space Grotesk', sans-serif", sora:"'Sora', sans-serif", 'plus-jakarta':"'Plus Jakarta Sans', sans-serif", manrope:"'Manrope', sans-serif"};
+      var FONT_STACKS = {inter:"'Inter', sans-serif", 'space-grotesk':"'Space Grotesk', sans-serif", sora:"'Sora', sans-serif", 'plus-jakarta':"'Plus Jakarta Sans', sans-serif", manrope:"'Manrope', sans-serif", 'bai-jamjuree':"'Bai Jamjuree', sans-serif"};
       if (s.font) root.style.setProperty('--font-sans', (FONT_STACKS[s.font]||FONT_STACKS.inter) + ", sans-serif");
       if (s.primary) root.style.setProperty('--brand-primary', s.primary);
       if (s.button) root.style.setProperty('--button-bg', s.button);
@@ -20,86 +20,77 @@
   } catch(e) {}
 })();
 </script>
-<title>AdNil — Settings</title>
+<title>AdNil — Help</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Bai+Jamjuree:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles/app.css" />
 <link rel="stylesheet" href="styles/customize.css" />
 </head>
 <body>
   <div class="device">
-    <div class="screen surface-subtle" data-node-id="1:494">
+    <div class="screen surface-subtle">
       <div class="status-bar">
         <span class="time">9:41</span>
         <span class="indicators">5G  100%</span>
       </div>
 
       <div class="content gap-8">
-        <h1 class="display-lg">Settings</h1>
+        <h1 class="display-lg">Help</h1>
 
-        <p class="settings-group-label">ACCOUNT</p>
+        <button type="button" class="watch-guide" style="background:var(--surface-base);border:1px solid var(--line-default);border-radius:14px;padding:12px 14px;">
+          <img src="assets/icons/79245.svg" width="18" height="18" alt="" />
+          Watch a 20-second setup guide
+        </button>
+
+        <p class="settings-group-label">FREQUENTLY ASKED</p>
         <div class="settings-group">
-          <a class="settings-row" href="13-settings.html">
-            <span>alex@example.com</span>
+          <a class="settings-row" href="18-help.html">
+            <span>Why is Safari blocking off?</span>
+            <img src="assets/icons/82601.svg" width="18" height="18" alt="" />
+          </a>
+          <a class="settings-row" href="18-help.html">
+            <span>Does AdNil slow down Safari?</span>
             <img src="assets/icons/82601.svg" width="18" height="18" alt="" />
           </a>
           <a class="settings-row" href="05-paywall.html">
-            <span>Manage subscription</span>
+            <span>How do I cancel my subscription?</span>
             <img src="assets/icons/82601.svg" width="18" height="18" alt="" />
           </a>
-          <a class="settings-row" href="05-paywall.html">
-            <span>Restore purchase</span>
-            <img src="assets/icons/82601.svg" width="18" height="18" alt="" />
-          </a>
-        </div>
-
-        <p class="settings-group-label">PROTECTION</p>
-        <div class="settings-group">
-          <a class="settings-row" href="13-settings.html">
-            <span>Block lists · updated today</span>
-            <img src="assets/icons/82601.svg" width="18" height="18" alt="" />
-          </a>
-          <a class="settings-row" href="13-settings.html">
-            <span>Notifications</span>
+          <a class="settings-row" href="18-help.html">
+            <span>Is my browsing data private?</span>
             <img src="assets/icons/82601.svg" width="18" height="18" alt="" />
           </a>
         </div>
 
         <p class="settings-group-label">SUPPORT</p>
         <div class="settings-group">
-          <a class="settings-row" href="13-settings.html">
-            <span>Help center &amp; FAQ</span>
-            <img src="assets/icons/82601.svg" width="18" height="18" alt="" />
-          </a>
-          <a class="settings-row" href="13-settings.html">
+          <a class="settings-row" href="18-help.html">
             <span>Contact support</span>
             <img src="assets/icons/82601.svg" width="18" height="18" alt="" />
           </a>
-          <a class="settings-row" href="13-settings.html">
+          <a class="settings-row" href="16-settings.html">
             <span>Terms · Privacy Policy</span>
             <img src="assets/icons/82601.svg" width="18" height="18" alt="" />
           </a>
         </div>
-
-        <a class="settings-row danger" href="01-welcome.html" style="margin-top:6px;">Delete account</a>
       </div>
 
       <nav class="tab-bar">
-        <a class="tab" href="11-dashboard-protected.html">
+        <a class="tab" href="14-dashboard-protected.html">
           <img src="assets/icons/b26b3.svg" width="24" height="24" alt="" />
           <span>Home</span>
         </a>
-        <a class="tab" href="14-protection.html">
+        <a class="tab" href="17-protection.html">
           <img src="assets/icons/5b6b0.svg" width="24" height="24" alt="" />
           <span>Protection</span>
         </a>
-        <a class="tab" href="15-help.html">
-          <img src="assets/icons/b79a2.svg" width="24" height="24" alt="" />
+        <a class="tab active" href="18-help.html">
+          <img src="assets/icons/b79a2-active.svg" width="24" height="24" alt="" />
           <span>Help</span>
         </a>
-        <a class="tab active" href="13-settings.html">
-          <img src="assets/icons/78313.svg" width="24" height="24" alt="" />
+        <a class="tab" href="16-settings.html">
+          <img src="assets/icons/a25ab.svg" width="24" height="24" alt="" />
           <span>Settings</span>
         </a>
       </nav>

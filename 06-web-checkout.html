@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>
+(function(){
+  try {
+    var raw = localStorage.getItem('adnil-customize');
+    if (raw) {
+      var s = JSON.parse(raw);
+      var root = document.documentElement;
+      var FONT_STACKS = {inter:"'Inter', sans-serif", 'space-grotesk':"'Space Grotesk', sans-serif", sora:"'Sora', sans-serif", 'plus-jakarta':"'Plus Jakarta Sans', sans-serif", manrope:"'Manrope', sans-serif", 'bai-jamjuree':"'Bai Jamjuree', sans-serif"};
+      if (s.font) root.style.setProperty('--font-sans', (FONT_STACKS[s.font]||FONT_STACKS.inter) + ", sans-serif");
+      if (s.primary) root.style.setProperty('--brand-primary', s.primary);
+      if (s.button) root.style.setProperty('--button-bg', s.button);
+      if (s.background) root.style.setProperty('--surface-base', s.background);
+      if (s.theme) root.setAttribute('data-theme', s.theme);
+    }
+  } catch(e) {}
+})();
+</script>
+<title>iolo Store — Checkout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Bai+Jamjuree:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles/app.css" />
+<link rel="stylesheet" href="styles/customize.css" />
+</head>
+<body>
+  <div class="device">
+    <div class="screen store" data-node-id="29:420">
+      <div class="status-bar">
+        <span class="time">9:41</span>
+        <span class="indicators">5G  100%</span>
+      </div>
+
+      <div class="store-page">
+        <div class="store-shop-header">
+          <img src="assets/icons/e317d.svg" width="34" height="34" alt="" />
+          <span>iolo</span><span>Store</span>
+        </div>
+
+        <div class="store-product">
+          <div class="store-product-info">
+            <h3>SUPERAdBlocker for Safari 1-year</h3>
+            <p>For iPhone and iPad. Blocks ads and trackers in Safari.</p>
+            <div class="price-row">
+              <strong>$2.50/month</strong><span>billed as</span><strong>$29.99/year</strong>
+            </div>
+            <p>Cancel anytime from your iolo account. Renews at $29.99/year until canceled.</p>
+          </div>
+          <div class="store-app-icon"><img src="assets/icons/3a325.svg" width="30" height="30" alt="" /></div>
+        </div>
+
+        <div class="store-plan-switch">
+          <span>Prefer monthly? $1.99/month</span>
+          <a href="#" onclick="return false;">Change plan</a>
+        </div>
+
+        <div class="store-tabs">
+          <div class="store-tab selected"><img src="assets/icons/f25d3.svg" width="22" height="22" alt="" />Card</div>
+          <div class="store-tab inactive"><span class="visa">Pay</span><span class="amex">Pal</span></div>
+        </div>
+        <div class="store-card-form">
+          <div class="store-field-row">
+            <div class="store-field">First Name</div>
+            <div class="store-field">Last Name</div>
+          </div>
+          <div class="store-field">
+            <img src="assets/icons/f25d3.svg" width="22" height="22" alt="" />
+            Card Number
+            <span class="card-brands"><span class="visa">VISA</span><img src="assets/icons/9d93d.svg" width="22" height="14" alt="" /><span class="amex">AMEX</span>DISCOVER</span>
+          </div>
+          <div class="store-field-row">
+            <div class="store-field">MM/YY</div>
+            <div class="store-field">CVV</div>
+          </div>
+          <div class="store-field">Email</div>
+          <p class="store-note">This email will be used in your iolo Account and to sign in to AdNil.</p>
+          <div class="store-field focus">USA<img src="assets/icons/06bbd.svg" width="16" height="16" alt="" /></div>
+          <div class="store-field-row">
+            <div class="store-field">Street Address</div>
+            <div class="store-field">Street Address 2</div>
+          </div>
+          <div class="store-field-row">
+            <div class="store-field">City</div>
+            <div class="store-field">State<img src="assets/icons/06bbd.svg" width="16" height="16" alt="" /></div>
+            <div class="store-field">ZIP</div>
+          </div>
+          <div class="store-field-row">
+            <div class="store-field focus">+1  United States<img src="assets/icons/06bbd.svg" width="16" height="16" alt="" /></div>
+            <div class="store-field">Mobile Phone Number</div>
+          </div>
+        </div>
+
+        <div class="store-order-total">
+          <div class="row"><span>AdNil Ad Blocker · Yearly</span><span>$29.99</span></div>
+          <div class="row"><span>Tax</span><span>$0.00</span></div>
+          <div class="row total"><span>Due today</span><span>$29.99</span></div>
+        </div>
+
+        <div class="store-consent">
+          <div class="box"></div>
+          <p>I agree to the Terms of Service and Privacy Policy, and that my subscription renews automatically at $29.99/year until I cancel.</p>
+        </div>
+
+        <a class="store-cta" href="07-post-purchase-sas.html">Continue</a>
+        <p class="store-footnote">Secure checkout · You will return to AdNil automatically after payment.</p>
+
+        <div class="store-chat">Live Chat Support<img src="assets/icons/ed745.svg" width="24" height="24" alt="" /></div>
+      </div>
+
+      <div class="store-safari-toolbar">
+        <div class="chip"><img src="assets/icons/40a88.svg" width="20" height="20" alt="" /></div>
+        <div class="url">secure1.iolo.com</div>
+        <div class="chip"><img src="assets/icons/c7a0a.svg" width="20" height="20" alt="" /></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts/customize.js"></script>
+  <script src="scripts/nav.js"></script>
+</body>
+</html>

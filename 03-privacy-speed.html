@@ -10,7 +10,7 @@
     if (raw) {
       var s = JSON.parse(raw);
       var root = document.documentElement;
-      var FONT_STACKS = {inter:"'Inter', sans-serif", 'space-grotesk':"'Space Grotesk', sans-serif", sora:"'Sora', sans-serif", 'plus-jakarta':"'Plus Jakarta Sans', sans-serif", manrope:"'Manrope', sans-serif"};
+      var FONT_STACKS = {inter:"'Inter', sans-serif", 'space-grotesk':"'Space Grotesk', sans-serif", sora:"'Sora', sans-serif", 'plus-jakarta':"'Plus Jakarta Sans', sans-serif", manrope:"'Manrope', sans-serif", 'bai-jamjuree':"'Bai Jamjuree', sans-serif"};
       if (s.font) root.style.setProperty('--font-sans', (FONT_STACKS[s.font]||FONT_STACKS.inter) + ", sans-serif");
       if (s.primary) root.style.setProperty('--brand-primary', s.primary);
       if (s.button) root.style.setProperty('--button-bg', s.button);
@@ -23,7 +23,7 @@
 <title>AdNil — Take back control</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Bai+Jamjuree:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles/app.css" />
 <link rel="stylesheet" href="styles/customize.css" />
 </head>

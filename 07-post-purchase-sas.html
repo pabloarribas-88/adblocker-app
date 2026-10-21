@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>
+(function(){
+  try {
+    var raw = localStorage.getItem('adnil-customize');
+    if (raw) {
+      var s = JSON.parse(raw);
+      var root = document.documentElement;
+      var FONT_STACKS = {inter:"'Inter', sans-serif", 'space-grotesk':"'Space Grotesk', sans-serif", sora:"'Sora', sans-serif", 'plus-jakarta':"'Plus Jakarta Sans', sans-serif", manrope:"'Manrope', sans-serif", 'bai-jamjuree':"'Bai Jamjuree', sans-serif"};
+      if (s.font) root.style.setProperty('--font-sans', (FONT_STACKS[s.font]||FONT_STACKS.inter) + ", sans-serif");
+      if (s.primary) root.style.setProperty('--brand-primary', s.primary);
+      if (s.button) root.style.setProperty('--button-bg', s.button);
+      if (s.background) root.style.setProperty('--surface-base', s.background);
+      if (s.theme) root.setAttribute('data-theme', s.theme);
+    }
+  } catch(e) {}
+})();
+</script>
+<title>iolo Store — One-time offer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Bai+Jamjuree:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles/app.css" />
+<link rel="stylesheet" href="styles/customize.css" />
+</head>
+<body>
+  <div class="device">
+    <div class="screen store" data-node-id="29:225">
+      <div class="status-bar">
+        <span class="time">9:41</span>
+        <span class="indicators">5G  100%</span>
+      </div>
+
+      <div class="store-page" style="padding-top:12px;">
+        <div class="store-order-confirm">
+          <h2>Alex, thank you for your order!</h2>
+          <div class="status-hero protected next-step">
+            <h3>Next step: return to AdNil</h3>
+            <p>Open the app to turn on Safari blocking.</p>
+            <div class="btn" style="background:var(--status-protected);color:white;width:100%;">Return to AdNil</div>
+          </div>
+          <div class="order-meta">
+            <p>Order ID: 540240</p>
+            <p>Order date: Oct 19, 2026</p>
+          </div>
+          <div class="store-order-total">
+            <div class="row" style="font-weight:700;border-bottom:1px solid #d5d8dc;"><span>Product</span><span>Price</span></div>
+            <div class="row" style="border-bottom:1px solid #d5d8dc;"><span>AdNil Ad Blocker · Yearly</span><span>$7.99</span></div>
+            <div class="row"><span>Total before tax</span><span>$7.99</span></div>
+            <div class="row"><span>Sales tax</span><span>$0.00</span></div>
+            <div class="row total"><span>Grand total</span><span>$7.99</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="store-safari-toolbar">
+        <div class="url">secure1.iolo.com</div>
+      </div>
+
+      <div class="store-scrim"></div>
+      <div class="store-sheet">
+        <div class="store-sheet-handle"></div>
+        <div class="store-offer-top">
+          <span class="store-offer-tag">ONE-TIME OFFER · AFTER YOUR ADNIL PURCHASE</span>
+          <a class="icon-btn" href="08-post-purchase-vpn.html" aria-label="Close">
+            <img src="assets/icons/1b122.svg" width="20" height="20" alt="" />
+          </a>
+        </div>
+        <div class="store-offer-product">
+          <div class="store-offer-icon" style="background:#1a1f71;"><img src="assets/icons/ee810.svg" width="30" height="30" alt="" /></div>
+          <div class="store-offer-product-info">
+            <h3>Add SUPERAntiSpyware</h3>
+            <div class="sub"><img src="assets/icons/a5d8b.svg" width="14" height="14" alt="" />For your Windows PC</div>
+          </div>
+        </div>
+        <p class="store-offer-body">AdNil protects Safari on your iPhone. SUPERAntiSpyware finds and removes the spyware, adware and malware that slip onto your PC.</p>
+        <div class="store-offer-features">
+          <div class="store-offer-feature"><span class="chip"><img src="assets/icons/21da4.svg" width="13" height="13" alt="" /></span><p>Detects and removes spyware, adware, trojans and other malware</p></div>
+          <div class="store-offer-feature"><span class="chip"><img src="assets/icons/21da4.svg" width="13" height="13" alt="" /></span><p>Real-time blocking of threats as they appear</p></div>
+          <div class="store-offer-feature"><span class="chip"><img src="assets/icons/21da4.svg" width="13" height="13" alt="" /></span><p>Scheduled scans that run automatically</p></div>
+          <div class="store-offer-feature"><span class="chip"><img src="assets/icons/21da4.svg" width="13" height="13" alt="" /></span><p>Works alongside the antivirus you already have</p></div>
+        </div>
+        <div class="store-offer-price">
+          <div class="row"><span class="amount">$29.99/year</span><span class="note">price placeholder</span></div>
+          <p class="fine">Charged to the card you just used. No need to re-enter details. Download link sent to your email.</p>
+        </div>
+        <div class="store-offer-actions">
+          <a class="decline" href="08-post-purchase-vpn.html">No thanks</a>
+          <a class="accept" href="08-post-purchase-vpn.html">Add to my order</a>
+        </div>
+        <p class="store-offer-disclaimer">Renews yearly until canceled. Cancel anytime from your iolo account. Terms · Privacy</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts/customize.js"></script>
+  <script src="scripts/nav.js"></script>
+</body>
+</html>

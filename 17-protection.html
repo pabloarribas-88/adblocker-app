@@ -10,7 +10,7 @@
     if (raw) {
       var s = JSON.parse(raw);
       var root = document.documentElement;
-      var FONT_STACKS = {inter:"'Inter', sans-serif", 'space-grotesk':"'Space Grotesk', sans-serif", sora:"'Sora', sans-serif", 'plus-jakarta':"'Plus Jakarta Sans', sans-serif", manrope:"'Manrope', sans-serif"};
+      var FONT_STACKS = {inter:"'Inter', sans-serif", 'space-grotesk':"'Space Grotesk', sans-serif", sora:"'Sora', sans-serif", 'plus-jakarta':"'Plus Jakarta Sans', sans-serif", manrope:"'Manrope', sans-serif", 'bai-jamjuree':"'Bai Jamjuree', sans-serif"};
       if (s.font) root.style.setProperty('--font-sans', (FONT_STACKS[s.font]||FONT_STACKS.inter) + ", sans-serif");
       if (s.primary) root.style.setProperty('--brand-primary', s.primary);
       if (s.button) root.style.setProperty('--button-bg', s.button);
@@ -23,7 +23,7 @@
 <title>AdNil — Protection</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Bai+Jamjuree:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles/app.css" />
 <link rel="stylesheet" href="styles/customize.css" />
 </head>
@@ -82,11 +82,11 @@
 
         <p class="settings-group-label">SAFARI EXTENSION</p>
         <div class="settings-group">
-          <a class="settings-row" href="09-activation-verified.html">
+          <a class="settings-row" href="12-activation-verified.html">
             <span>Extension status · Enabled</span>
             <img src="assets/icons/82601.svg" width="18" height="18" alt="" />
           </a>
-          <a class="settings-row" href="13-settings.html">
+          <a class="settings-row" href="16-settings.html">
             <span>Block lists · updated today</span>
             <img src="assets/icons/82601.svg" width="18" height="18" alt="" />
           </a>
@@ -94,19 +94,19 @@
       </div>
 
       <nav class="tab-bar">
-        <a class="tab" href="11-dashboard-protected.html">
+        <a class="tab" href="14-dashboard-protected.html">
           <img src="assets/icons/b26b3.svg" width="24" height="24" alt="" />
           <span>Home</span>
         </a>
-        <a class="tab active" href="14-protection.html">
+        <a class="tab active" href="17-protection.html">
           <img src="assets/icons/5b6b0-active.svg" width="24" height="24" alt="" />
           <span>Protection</span>
         </a>
-        <a class="tab" href="15-help.html">
+        <a class="tab" href="18-help.html">
           <img src="assets/icons/b79a2.svg" width="24" height="24" alt="" />
           <span>Help</span>
         </a>
-        <a class="tab" href="13-settings.html">
+        <a class="tab" href="16-settings.html">
           <img src="assets/icons/a25ab.svg" width="24" height="24" alt="" />
           <span>Settings</span>
         </a>
